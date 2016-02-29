@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
-    "test": "mocha --compilers js:babel-core/register ./test/index.js"
+    "test": "mocha --compilers js:babel-core/register ./test/**/*.spec.js"
   },
   "devDependencies": {
     "babel-core": "^6.5.2",
