@@ -1,6 +1,6 @@
-export const complete = (loc) => {
+export const complete = (name, options = {}) => {
   return {
     type: 'NAVIGATION_COMPLETE',
-    location: loc
+    location: { name, options }
   };
 };

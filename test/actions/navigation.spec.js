@@ -6,10 +6,22 @@ describe('navigation', () => {
     it('should be a function', () => {
       expect(complete).to.be.a('function');
     });
+
     it('should return a NAVIGATION_COMPLETE action', () => {
-      expect(complete('foo')).to.eql({
+      const name = 'foo';
+      const options = {};
+      expect(complete(name, undefined)).to.eql({
         type: 'NAVIGATION_COMPLETE',
-        location: 'foo'
+        location: { name, options }
+      });
+    });
+
+    it('should support options', () => {
+      const name = 'foo';
+      const options = { bar: 'buzz' };
+      expect(complete(name, options)).to.eql({
+        type: 'NAVIGATION_COMPLETE',
+        location: { name, options }
       });
     });
   });

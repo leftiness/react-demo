@@ -6,18 +6,37 @@ export default describe('navigation reducer', () => {
     expect(
       navigation(undefined, {})
     ).to.eql({
-      location: undefined
+      location: {
+        name: undefined,
+        options: {}
+      }
     });
   });
 
   it('should handle NAVIGATION_COMPLETE', () => {
+    const location = {
+      name: 'foo',
+      options: {}
+    }
     expect(
       navigation(undefined, {
         type: 'NAVIGATION_COMPLETE',
-        location: 'foo'
+        location
       })
-    ).to.eql({
-        location: 'foo'
-    });
+    ).to.eql({ location });
   });
+
+  it('should support NAVIGATION_COMPLETE options', () => {
+    const location = {
+      name: 'foo',
+      options: {}
+    };
+    expect(
+      navigation(undefined, {
+        type: 'NAVIGATION_COMPLETE',
+        location
+      })
+    ).to.eql({ location })
+  });
+
 });

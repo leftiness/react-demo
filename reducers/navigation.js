@@ -1,11 +1,13 @@
 const navigation = (state = {
-  location: undefined
+  location: {
+    name: undefined,
+    options: {}
+  }
 }, action) => {
-  switch (action.type) {
+  const { type, location } = action;
+  switch (type) {
     case 'NAVIGATION_COMPLETE' :
-      return {
-        location: action.location
-      };
+      return { location };
     default:
       return state;
   }
