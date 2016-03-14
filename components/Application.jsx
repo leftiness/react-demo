@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react';
 
 import DatesApp from './DatesApp.jsx';
+import NotFound from './NotFound.jsx';
+import NavigationLink from '../containers/NavigationLink.jsx';
 
 let listener;
 
@@ -15,7 +17,7 @@ const Application = React.createClass({
       case 'dates':
         return <DatesApp />
       default:
-        return <div>404</div>
+        return <NotFound />
     }
   },
   componentWillMount() {
