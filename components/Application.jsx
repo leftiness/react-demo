@@ -21,9 +21,11 @@ const Application = React.createClass({
     }
   },
   componentWillMount() {
-    window.addEventListener('hashchange', listener = () => {
+    listener = () => {
       this.props.onHashChange(window.location.hash.substr(1));
-    }, false);
+    };
+    listener();
+    window.addEventListener('hashchange', listener, false);
   },
   componentWillUnmount() {
     window.removeEventListener('hashchange', listener, false);
