@@ -13,8 +13,8 @@
     "node": "4.1.1"
   },
   "scripts": {
-    "start": "webpack-dev-server",
-    "test": "mocha --compilers js:babel-core/register ./test/**/*.spec.js"
+    "start": "webpack-dev-server --config webpack.config.js --port 5000",
+    "test": "webpack-dev-server --config test.config.js --port 5001"
   },
   "devDependencies": {
     "babel-core": "^6.5.2",
@@ -27,6 +27,7 @@
     "webpack": "^1.12.14"
   },
   "dependencies": {
+    "mocha-loader": "^0.7.1",
     "picnic": "^4.1.2",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
