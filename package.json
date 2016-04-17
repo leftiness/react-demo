@@ -25,7 +25,8 @@
     "expect.js": "^0.3.1",
     "mocha": "^2.4.5",
     "react-addons-test-utils": "^15.0.1",
-    "webpack": "^1.12.14"
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
     "mocha-loader": "^0.7.1",
