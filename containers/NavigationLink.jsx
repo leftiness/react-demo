@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
 
-import { complete } from '../actions/navigation.js';
-import Link from '../components/Link.jsx';
-import ROUTES from '../constants/ROUTES.js';
+import { Link } from 'components';
+import { ROUTES } from 'constants';
 
 const mapStateToProps = (state, ownProps) => {
   return {
