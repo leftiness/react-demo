@@ -2,8 +2,16 @@ import utils from 'react-addons-test-utils';
 import React from 'react';
 import expect from 'expect.js';
 
+/*
+Verbose import required due to some weird behavior.
 
-import DatesApp from '../../components/DatesApp.jsx';
+Importing from 'components' causes it to throw an exception which complains
+about components/Application.jsx not being found.
+
+import { DatesApp } from 'components';
+*/
+
+import DatesApp from 'components/DatesApp.jsx';
 
 describe('DatesApp', () => {
   const renderer = utils.createRenderer();
@@ -19,4 +27,3 @@ describe('DatesApp', () => {
     expect(result.props.children).to.eql('Hello');
   });
 });
-
