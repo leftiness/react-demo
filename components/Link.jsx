@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
 
-const Link = ({ active, children, url }) => {
+const Link = ({ active, children, url, ...props }) => {
   if (active) {
-    return <span>{ children }</span>
+    return <span { ...props }>{ children }</span>
   }
 
-  return <a href={ url }>{ children }</a>
+  return <a href={ url } { ...props }>{ children }</a>
 };
 
 Link.propTypes = {

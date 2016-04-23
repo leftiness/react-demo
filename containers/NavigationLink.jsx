@@ -5,6 +5,7 @@ import ROUTES from 'constants/ROUTES.js';
 
 const mapStateToProps = (state, ownProps) => {
   return {
+    ...ownProps,
     active: ownProps.name === state.navigation.location.name,
     url: '#' + ROUTES.generate(ownProps.name)
   };
