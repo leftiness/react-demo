@@ -1,6 +1,6 @@
 import React from 'react';
 
-import NavigationLink from '../containers/NavigationLink.jsx';
+import NavigationLink from 'containers/NavigationLink.jsx';
 
 const NotFound = () => (
   <div>

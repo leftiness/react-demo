@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 
 import DatesApp from './DatesApp.jsx';
 import NotFound from './NotFound.jsx';
-import NavigationLink from '../containers/NavigationLink.jsx';
+import NavigationLink from 'containers/NavigationLink.jsx';
 
 let listener;
 

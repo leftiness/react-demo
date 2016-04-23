@@ -2,8 +2,7 @@ import utils from 'react-addons-test-utils';
 import React from 'react';
 import expect from 'expect.js';
 
-
-import DatesApp from '../../components/DatesApp.jsx';
+import DatesApp from 'components/DatesApp.jsx';
 
 describe('DatesApp', () => {
   const renderer = utils.createRenderer();
@@ -19,4 +18,3 @@ describe('DatesApp', () => {
     expect(result.props.children).to.eql('Hello');
   });
 });
-

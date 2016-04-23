@@ -1,5 +1,6 @@
 import expect from 'expect.js';
-import navigation from '../../reducers/navigation.js';
+
+import navigation from 'reducers/navigation.js';
 
 export default describe('navigation reducer', () => {
   it('should handle initial state', () => {
