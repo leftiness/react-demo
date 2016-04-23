@@ -1,11 +1,12 @@
 import expect from 'expect.js';
 
-import { navigation } from 'actions';
-
-const complete = navigation.complete;
+import navigation from 'actions/navigation.js';
 
 describe('navigation', () => {
   describe('#complete()', () => {
+
+    const complete = navigation.complete;
+
     it('should be a function', () => {
       expect(complete).to.be.a('function');
     });
