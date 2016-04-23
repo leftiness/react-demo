@@ -1,8 +1,5 @@
 import expect from 'expect.js';
-
-import { navigation } from 'actions';
-
-const complete = navigation.complete;
+import { complete } from '../../actions/navigation.js';
 
 describe('navigation', () => {
   describe('#complete()', () => {

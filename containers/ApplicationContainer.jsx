@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 
-import { navigation } from 'actions';
-import { Application } from 'components';
-import { ROUTES } from 'constants';
+import { complete } from '../actions/navigation.js';
+import Application from '../components/Application.jsx';
+import ROUTES from '../constants/ROUTES.js';
 
 const mapStateToProps = (state) => {
   return {
@@ -14,7 +14,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onHashChange: (loc) => {
       const { name, options } = ROUTES.lookup(loc);
-      dispatch(navigation.complete(name, options));
+      dispatch(complete(name, options));
     }
   };
 };

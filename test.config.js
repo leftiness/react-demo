@@ -1,4 +1,5 @@
 var path = require('path');
+var webpack = require('webpack');
 
 var babel_loader = {
   test: /.jsx?$/,
@@ -13,9 +14,5 @@ module.exports = {
   entry: "mocha!./test/index.js",
   module: {
     loaders: [ babel_loader ]
-  },
-  resolve: {
-    root: path.resolve(__dirname),
-    extensions: [ '', '.js', '.jsx' ]
   }
 };
