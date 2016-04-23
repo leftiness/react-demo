@@ -1,17 +1,16 @@
 import React, { PropTypes } from 'react';
 
-const Link = ({ active, children, url }) => {
-  if (active) {
-    return <span>{ children }</span>
-  }
+import ROUTES from 'constants/ROUTES.js';
 
-  return <a href={ url }>{ children }</a>
+const Link = ({ children, name, ...props }) => {
+  const href = '#' + ROUTES.generate(name);
+  return <a href={ href } { ...props }>{ children }</a>
 };
 
 Link.propTypes = {
-  active: PropTypes.bool.isRequired,
+  name: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
-  url: PropTypes.string.isRequired
+  href: PropTypes.string.isRequired
 };
 
 export default Link;
