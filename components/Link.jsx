@@ -9,8 +9,7 @@ const Link = ({ children, name, ...props }) => {
 
 Link.propTypes = {
   name: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
-  href: PropTypes.string.isRequired
+  children: PropTypes.node.isRequired
 };
 
 export default Link;
