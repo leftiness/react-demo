@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 
-import ROUTES from 'constants/ROUTES.js';
+import ROUTER from 'constants/ROUTER.js';
 
 const Link = ({ children, name, ...props }) => {
-  const href = '#' + ROUTES.generate(name);
+  const href = '#' + ROUTER.generate(name);
   return <a href={ href } { ...props }>{ children }</a>
 };
 

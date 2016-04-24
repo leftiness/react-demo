@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import navigation from 'actions/navigation.js';
 import Application from 'components/Application.jsx';
-import ROUTES from 'constants/ROUTES.js';
+import ROUTER from 'constants/ROUTER.js';
 
 const mapStateToProps = (state) => {
   return {
@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onHashChange: (loc) => {
-      const { name, options } = ROUTES.lookup(loc);
+      const { name, options } = ROUTER.lookup(loc);
       dispatch(navigation.complete(name, options));
     }
   };
