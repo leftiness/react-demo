@@ -28,6 +28,7 @@ const Application = React.createClass({
       <div>
         <Nav />
         <div style={ style } >
+          <Sidebar />
           { React.createElement(component) }
         </div>
       </div>
