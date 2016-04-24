@@ -31,8 +31,9 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "lodash": "^4.11.1",
     "mocha-loader": "^0.7.1",
-    "picnic": "^4.1.2",
+    "picnic": "git://github.com/picnicss/picnic.git",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-redux": "^4.4.0",

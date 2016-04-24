@@ -1,8 +1,10 @@
 import React, { PropTypes } from 'react';
+import get from 'lodash/get';
 
-import Home from './Home.jsx';
-import DatesApp from './DatesApp.jsx';
+import ROUTES from 'constants/ROUTES.js';
+
 import Nav from './Nav.jsx';
+import Sidebar from './Sidebar.jsx';
 import NotFound from './NotFound.jsx';
 
 let listener;
@@ -21,14 +23,13 @@ const Application = React.createClass({
   },
   render() {
     const { name, options } = this.props.location;
+    const component = get(ROUTES, name + '.component') || NotFound;
     return (
       <div>
         <Nav />
         <div style={ style } >
-          { 'home' === name ? <Home />
-          : 'dates' === name ? <DatesApp />
-          : <NotFound />
-          }
+          <Sidebar />
+          { React.createElement(component) }
         </div>
       </div>
     );

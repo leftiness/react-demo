@@ -7,10 +7,10 @@ import Home from 'components/Home.jsx';
 describe('Home', () => {
   const renderer = utils.createRenderer();
   const element = React.createElement(Home);
-  it('should be a div', () => {
+  it('should be an h2', () => {
     renderer.render(element);
     const result = renderer.getRenderOutput();
-    expect(result.type).to.be('div');
+    expect(result.type).to.be('h2');
   });
   it('should say home', () => {
     renderer.render(element);
