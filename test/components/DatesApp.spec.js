@@ -7,10 +7,10 @@ import DatesApp from 'components/DatesApp.jsx';
 describe('DatesApp', () => {
   const renderer = utils.createRenderer();
   const element = React.createElement(DatesApp);
-  it('should be a div', () => {
+  it('should be an h2', () => {
     renderer.render(element);
     const result = renderer.getRenderOutput();
-    expect(result.type).to.be('div');
+    expect(result.type).to.be('h2');
   });
   it('should say hello', () => {
     renderer.render(element);
