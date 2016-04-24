@@ -1,7 +1,7 @@
 import React from 'react';
 
 const DatesApp = () => (
-  <div>Hello</div>
+  <h2>Hello</h2>
 );
 
 export default DatesApp;
