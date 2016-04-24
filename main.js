@@ -3,6 +3,8 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 
+const Picnic = require('picnic/picnic.min.css');
+
 import * as reducers from './reducers';
 import ApplicationContainer from 'containers/ApplicationContainer.jsx';
 

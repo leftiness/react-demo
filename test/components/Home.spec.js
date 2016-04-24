@@ -2,19 +2,19 @@ import utils from 'react-addons-test-utils';
 import React from 'react';
 import expect from 'expect.js';
 
-import DatesApp from 'components/DatesApp.jsx';
+import Home from 'components/Home.jsx';
 
-describe('DatesApp', () => {
+describe('Home', () => {
   const renderer = utils.createRenderer();
-  const element = React.createElement(DatesApp);
+  const element = React.createElement(Home);
   it('should be an h2', () => {
     renderer.render(element);
     const result = renderer.getRenderOutput();
     expect(result.type).to.be('h2');
   });
-  it('should say hello', () => {
+  it('should say home', () => {
     renderer.render(element);
     const result = renderer.getRenderOutput();
-    expect(result.props.children).to.eql('Hello');
+    expect(result.props.children).to.eql('Home');
   });
 });

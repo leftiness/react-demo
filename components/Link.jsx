@@ -1,17 +1,16 @@
 import React, { PropTypes } from 'react';
 
-const Link = ({ active, children, url }) => {
-  if (active) {
-    return <span>{ children }</span>
-  }
+import ROUTER from 'constants/ROUTER.js';
 
-  return <a href={ url }>{ children }</a>
+const Link = ({ children, name, options, ...props }) => {
+  const href = '#' + ROUTER.generate(name, options);
+  return <a href={ href } { ...props }>{ children }</a>
 };
 
 Link.propTypes = {
-  active: PropTypes.bool.isRequired,
-  children: PropTypes.node.isRequired,
-  url: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
+  options: PropTypes.object,
+  children: PropTypes.node.isRequired
 };
 
 export default Link;

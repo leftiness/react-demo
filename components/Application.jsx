@@ -1,10 +1,20 @@
 import React, { PropTypes } from 'react';
+import get from 'lodash/get';
 
-import DatesApp from './DatesApp.jsx';
+import ROUTES from 'constants/ROUTES.js';
+
+import Nav from './Nav.jsx';
+import Sidebar from './Sidebar.jsx';
 import NotFound from './NotFound.jsx';
-import NavigationLink from 'containers/NavigationLink.jsx';
 
 let listener;
+
+const style = {
+  padding: '80px 0 0',
+  margin: '0 auto',
+  maxWidth: '1200px',
+  width: '90%'
+};
 
 const Application = React.createClass({
   propTypes: {
@@ -13,12 +23,16 @@ const Application = React.createClass({
   },
   render() {
     const { name, options } = this.props.location;
-    switch (name) {
-      case 'dates':
-        return <DatesApp />
-      default:
-        return <NotFound />
-    }
+    const component = get(ROUTES, name + '.component') || NotFound;
+    return (
+      <div>
+        <Nav />
+        <div style={ style } >
+          <Sidebar />
+          { React.createElement(component) }
+        </div>
+      </div>
+    );
   },
   componentWillMount() {
     listener = () => {

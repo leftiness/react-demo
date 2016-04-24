@@ -9,10 +9,15 @@ var babel_loader = {
   }
 };
 
+var css_loader = {
+  test: /\.css$/,
+  loader: 'style-loader!css-loader'
+};
+
 module.exports = {
   entry: "mocha!./test/index.js",
   module: {
-    loaders: [ babel_loader ]
+    loaders: [ babel_loader, css_loader ]
   },
   resolve: {
     root: path.resolve(__dirname),
