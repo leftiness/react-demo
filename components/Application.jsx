@@ -4,8 +4,8 @@ import get from 'lodash/get';
 import ROUTES from 'constants/ROUTES.js';
 
 import Nav from './Nav.jsx';
-import Sidebar from './Sidebar.jsx';
 import NotFound from './NotFound.jsx';
+import SidebarContainer from 'containers/SidebarContainer.jsx';
 
 let listener;
 
@@ -28,7 +28,7 @@ const Application = React.createClass({
       <div>
         <Nav />
         <div style={ style } >
-          <Sidebar />
+          <SidebarContainer />
           { React.createElement(component) }
         </div>
       </div>
