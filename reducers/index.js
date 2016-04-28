@@ -1,2 +1,2 @@
-export dates from './dates.js';
+export reservations from './reservations.js';
 export navigation from './navigation.js';
