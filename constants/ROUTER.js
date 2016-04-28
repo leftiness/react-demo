@@ -7,4 +7,12 @@ const router = uniloc(mapValues(ROUTES, (route) => {
   return route.path;
 }));
 
-export default router;
+const generate = (name, options) => {
+  const safeName = ROUTES.hasOwnProperty(name) ? name : 'notFound';
+  return router.generate(safeName, options);
+};
+
+export default {
+  lookup: router.lookup,
+  generate: generate
+};
