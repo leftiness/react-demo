@@ -1,11 +1,14 @@
 import uniloc from 'uniloc';
-import mapValues from 'lodash/mapValues';
+import { flow, mapValues, assign } from 'lodash/fp';
 
 import ROUTES from './ROUTES.js';
 
-const router = uniloc(mapValues(ROUTES, (route) => {
-  return route.path;
-}));
+const routes = flow(
+  mapValues((route) => route.path),
+  assign({ notFound: 'GET /404' })
+)(ROUTES);
+
+const router = uniloc(routes);
 
 const generate = (name, options) => {
   const safeName = ROUTES.hasOwnProperty(name) ? name : 'notFound';

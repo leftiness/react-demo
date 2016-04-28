@@ -8,8 +8,7 @@ const route = (text, path, component) => {
 
 const ROUTES = {
   home: route('Home', 'GET /home', Home),
-  reservations: route('Reservations', 'GET /reservations', Reservations),
-  notFound: route('Not Found', 'GET /404', NotFound)
+  reservations: route('Reservations', 'GET /reservations', Reservations)
 };
 
 export default ROUTES;
