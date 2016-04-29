@@ -6,61 +6,55 @@ import { get, curry } from 'lodash';
 import Reservations from 'components/Reservations.jsx';
 
 describe('Reservations', () => {
-  const renderer = utils.createRenderer();
-  const result = curry((element, props) => {
-    return React.createElement(element, props);
+  const result = curry((component, props) => {
+    const renderer = utils.createRenderer();
+    const element = React.createElement(component, props);
+    renderer.render(element);
+    return renderer.getRenderOutput();
   })(Reservations);
-  const empty = result([]);
-  const one = result([ 'foo' ]);
+  const empty = result({ reservations: [] });
+  const one = result({ reservations: [ 'foo' ] });
 
-  it('should be a reservations component', () => {
-    const atype = get(empty, 'type.name');
-    expect(atype).to.be('Reservations');
+  it('should be a div', () => {
+    const atype = get(empty, 'type');
+    expect(atype).to.be('div');
   });
-
-  /*
-  TODO
-  Figure out this unit testing stuff...
 
   it('should have an h2', () => {
     const atype = get(empty, 'props.children[0].type');
-    expect(atype).to.eql('h2');
+    expect(atype).to.be('h2');
   });
 
   it('should say hello', () => {
-    const children = get(empty, 'props.children[0].children');
-    expect(children).to.eql('Hello');
+    const children = get(empty, 'props.children[0].props.children');
+    expect(children).to.be('Hello');
   });
 
   it('should have a div', () => {
     const atype = get(empty, 'props.children[1].type');
-    expect(atype).to.eql('div');
+    expect(atype).to.be('div');
   });
 
   it('should say that there are no reservations', () => {
-    const children = get(empty, 'props.children[1].children');
-    expect(children).to.eql('There are no reservations.');
+    const children = get(empty, 'props.children[1].props.children');
+    expect(children).to.be('There are no reservations.');
   });
 
   it('should have an array', () => {
-    const children = get(one, 'props.children[1].children');
+    const children = get(one, 'props.children[1]');
     expect(children).to.be.an('array');
   });
 
   it('should have one item', () => {
-    const length = get(one, 'props.children[1].children.length');
-    expect(length).to.eql(1);
+    const length = get(one, 'props.children[1].length');
+    expect(length).to.be(1);
   });
 
   it('should be a reservation', () => {
-    const name = get(one, 'props.children[1].children.type.name');
-    expect(name).to.eql('Reservation');
+    const name = get(one, 'props.children[1][0].type.name');
+    expect(name).to.be('Reservation');
   });
 
-  it('should have the right props', () => {
-    // ...
-  });
-
-  */
+  it.skip('should have the right props', () => {});
 
 });
