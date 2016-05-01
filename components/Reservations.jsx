@@ -1,23 +1,24 @@
 import React, { PropTypes } from 'react';
-import { map } from 'lodash';
+import { isEmpty, map, keys } from 'lodash';
 
 import Reservation from './Reservation.jsx';
 
-const Reservations = ({ reservations = [] }) => (
+const Reservations = ({ reservations = {} }) => (
   <div>
     <h2>Hello</h2>
     {
-      reservations.length === 0
+      isEmpty(reservations)
         ? <div>There are no reservations.</div>
-        : map(reservations, (res) => {
-          return <Reservation />
+        : map(keys(reservations), (key) => {
+          const reservation = reservations[key];
+          return <Reservation { ...reservation } />
         })
     }
   </div>
 );
 
 Reservations.propTypes = {
-  reservations: PropTypes.array
+  reservations: PropTypes.object
 };
 
 export default Reservations;
