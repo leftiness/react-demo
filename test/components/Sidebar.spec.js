@@ -11,7 +11,7 @@ describe('Sidebar', () => {
 
   it('should be a div', () => {
     const renderer = utils.createRenderer();
-    const element = React.createElement(Sidebar);
+    const element = React.createElement(Sidebar, { visible: true });
     renderer.render(element);
     const result = renderer.getRenderOutput();
     expect(result.type).to.be('div');
@@ -24,7 +24,7 @@ describe('Sidebar', () => {
       foo: { text: 'Foo' }
     };
     const akeys = keys(routes);
-    const element = React.createElement(Sidebar, { routes } );
+    const element = React.createElement(Sidebar, { routes, visible: true } );
     renderer.render(element);
     const result = renderer.getRenderOutput();
     const links = get(result, 'props.children[1]');
