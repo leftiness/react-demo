@@ -23,8 +23,8 @@ const Reservations = ({
             const reservation = reservations[key];
             const id = reservation.id;
             return (
-              <div>
-                <Reservation key={ id } { ...reservation } />
+              <div key={ id }>
+                <Reservation { ...reservation } />
                 <button
                   className="pseudo"
                   onClick={ () => onDeleteReservation(id) }
@@ -35,12 +35,14 @@ const Reservations = ({
             );
           })
       }
-      <input
+      <div>
+        <input
         ref={ (input) => nameInput = input }
         placeholder="Name"
         onKeyDown={ (e) => e.keyCode === 13 ? add(nameInput) : false }
-      />
-      <button onClick={ () => add(nameInput) }>Add</button>
+        />
+        <button onClick={ () => add(nameInput) }>Add</button>
+      </div>
     </div>
   );
 }
