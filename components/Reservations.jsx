@@ -3,7 +3,11 @@ import { isEmpty, map, keys } from 'lodash';
 
 import Reservation from './Reservation.jsx';
 
-const Reservations = ({ reservations = {}, onAddReservation }) => {
+const Reservations = ({
+  reservations = {},
+  onAddReservation,
+  onDeleteReservation,
+}) => {
   let nameInput;
   const add = (input) => {
     onAddReservation(input.value);
@@ -17,7 +21,18 @@ const Reservations = ({ reservations = {}, onAddReservation }) => {
           ? <div>There are no reservations.</div>
           : map(keys(reservations), (key) => {
             const reservation = reservations[key];
-            return <Reservation key={ reservation.id }{ ...reservation } />
+            const id = reservation.id;
+            return (
+              <div>
+                <Reservation key={ id } { ...reservation } />
+                <button
+                  className="pseudo"
+                  onClick={ () => onDeleteReservation(id) }
+                  >
+                  X
+                </button>
+              </div>
+            );
           })
       }
       <input
@@ -33,6 +48,7 @@ const Reservations = ({ reservations = {}, onAddReservation }) => {
 Reservations.propTypes = {
   reservations: PropTypes.object,
   onAddReservation: PropTypes.func.isRequired,
+  onDeleteReservation: PropTypes.func.isRequired,
 };
 
 export default Reservations;

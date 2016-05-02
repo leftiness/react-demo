@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import Reservations from 'components/Reservations.jsx';
-import { addReservation } from 'actions/reservations.js';
+import { addReservation, deleteReservation } from 'actions/reservations.js';
 
 /*
  * Eventually, I'll ask a service to create a reservation record.
@@ -17,7 +17,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   const onAddReservation = (name) => dispatch(addReservation(tempid++, name));
-  return { onAddReservation };
+  const onDeleteReservation = (id) => dispatch(deleteReservation(id));
+  return { onAddReservation, onDeleteReservation };
 }
 
 export default connect(
