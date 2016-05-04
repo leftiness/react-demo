@@ -162,7 +162,6 @@ describe('Reservations', () => {
 
     const formGroup = mainChildren + '[2]';
     const formChildren = formGroup + '.props.children';
-    console.log(formChildren, empty);
 
     it('should be a div', () => {
       const atype = get(empty, formGroup + '.type');
