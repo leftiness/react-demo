@@ -2,6 +2,7 @@ import { assign, omit, flow } from 'lodash/fp';
 
 export default (state = {}, action = {}) => {
   switch (action.type) {
+    case 'UPDATE_RESERVATION':
     case 'ADD_RESERVATION':
       return flow(
         omit('type'),
