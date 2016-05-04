@@ -11,6 +11,7 @@ export default describe('reservations', () => {
       const id = '0';
       const name = 'Melody';
       const result = reservations.addReservation(id, name);
+
       expect(result).to.eql({ type: atype, id, name });
     });
 
@@ -22,9 +23,22 @@ export default describe('reservations', () => {
       const atype = 'DELETE_RESERVATION';
       const id = '0';
       const result = reservations.deleteReservation(id);
+
       expect(result).to.eql({ type: atype, id });
     });
 
   });
+
+  describe('#updateReservation()', () => {
+
+    it('should return an UPDATE_RESERVATION action', () => {
+      const atype = 'UPDATE_RESERVATION';
+      const id = '0';
+      const name = 'Melody';
+      const result = reservations.updateReservation(id, name);
+
+      expect(result).to.eql({ type: atype, id, name });
+    });
+  })
 
 });
